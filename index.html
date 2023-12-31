@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+<div class="back">
+
+</div>
+
+<div class="container">
+
+</div>
+
+<div class="h1" >
+    <p id="quote">Motivation quotes</p>
+</div>
+
+<div class="h2">
+    <p id="aurthor"></p>aurthor</p>
+</div>
+
+<div class="b" id=" btn">
+<button class="btn" id="btn">Get Quotes</button>
+</div>
+    </header>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+header
+{
+    background-color: #f43543;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background-size: cover;
+}
+
+.back
+{
+    background-color: white;
+    width: 25%;
+    height: 25%;
+    margin-left: 37%;
+    margin-top: 20%;
+}
+
+.container
+{
+    background-color: #f43543;
+    width: 32%;
+    height: 12%;
+    margin-left: 33%;
+    margin-top: -8%;
+    border: 2px solid white;
+    border-radius: 10px;
+    word-wrap: break-word;
+    size: auto;
+}
+
+.h1
+{
+    color: white;
+    margin-left: 34%;
+    margin-top: -5%;
+    word-wrap: break-word;
+    width: 400px;
+}
+
+.h2
+{
+    color: white;
+    margin-left: 55%;
+    margin-top: 1%; 
+    word-wrap: break-word;
+    width: 100px; 
+    
+    
+}
+
+.btn
+{
+    color: white;
+    margin-left: 46%;
+    margin-top: 1%;  
+    background-color: #f43543;  
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+
+</style>
+
+<script>
+    const quote = document.getElementById('quote');
+    const aurthor = document.getElementById('aurthor');
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click',myfun);
+
+function myfun()
+{
+    fetch('https://api.quotable.io/random')
+    .then(res => res.json())
+    .then(data => {
+        quote.innerHTML= data.content;
+        aurthor.innerHTML = data.author;
+    })
+}
+</script>
+</body>
+</html>
